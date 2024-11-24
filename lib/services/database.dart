@@ -12,17 +12,20 @@ class DatabaseService {
     }
   }
 
-  Future<void> addQuestionData(Map<String, dynamic> questionData, String quizID) async {
+  Future<void> addQuestionData(
+      Map<String, dynamic> questionData, String quizID) async {
     try {
       await FirebaseFirestore.instance
           .collection("Quiz")
           .doc(quizID)
           .collection("Question")
-          .add(questionData); 
+          .add(questionData);
     } catch (e) {
       print("Error adding question data: ${e.toString()}");
     }
   }
 
-
+  getQuizData() async {
+    return await FirebaseFirestore.instance.collection("Quiz").snapshots();
+  }
 }
