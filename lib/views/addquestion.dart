@@ -77,7 +77,7 @@ class _AddQuestionState extends State<AddQuestion> {
                       validator: (val) =>
                           val!.isEmpty ? "Enter a valid Option 1" : null,
                       decoration: const InputDecoration(
-                        hintText: "Option 1",
+                        hintText: "Option 1 (Correct Answer)",
                       ),
                       onChanged: (val) {
                         option1 = val;
